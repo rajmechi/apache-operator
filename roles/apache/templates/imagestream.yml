@@ -1,0 +1,12 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftWebConsole
+  labels:
+    app: httpd-ex
+  name: httpd-ex
+  namespace: "{{ meta.namespace }}"
+spec:
+  lookupPolicy:
+    local: false

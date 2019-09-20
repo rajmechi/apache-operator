@@ -1,0 +1,7 @@
+apiVersion: apps.example.com/v1alpha1
+kind: Apache
+metadata:
+  name: example-apache
+spec:
+  # Add fields here
+  size: 3

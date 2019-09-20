@@ -1,0 +1,24 @@
+---
+# tasks file for apache
+#
+
+- name: debug the information
+  debug:
+    msg="The namespace is {{ meta.namespace }} name of the object is {{ meta.name }}"
+
+- name: apply image stream  templates
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'imagestream.yml') }}"
+
+
+- name: apply build templates
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'build.yml') }}"
+
+#- name: apply apache templates
+#  k8s:
+#    state: present
+#    definition: "{{ lookup('template', 'deploymentconfig.yml') }}"
+

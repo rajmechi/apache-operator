@@ -1,0 +1,36 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  labels:
+    app: httpd-ex
+  name: httpd-ex
+  namespace: {{ meta.namespace }}
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'httpd-ex:latest'
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    git:
+      ref: master
+      uri: 'https://github.com/openshift/httpd-ex.git'
+    type: Git
+  strategy:
+    sourceStrategy:
+      from:
+        kind: DockerImage
+        name: registry.access.redhat.com/rhscl/httpd-24-rhel7
+    type: Source
+  triggers:
+    - type: ImageChange
+    - type: ConfigChange
+    - generic:
+        secret: 94f75aedc9253d2d
+      type: Generic
+    - github:
+        secret: 6225ac0ec0885114
+      type: GitHub

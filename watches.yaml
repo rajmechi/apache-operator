@@ -1,0 +1,6 @@
+---
+- version: v1alpha1
+  group: apps.example.com
+  kind: Apache
+  #role: /opt/ansible/roles/apache
+  role: /products/operator/apache-operator/roles/apache 

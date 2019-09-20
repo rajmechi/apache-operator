@@ -1,4 +1,6 @@
-# apache-operator
+# apache-operator - ansible based
+
+this operator can listen events and trigger the plabook. you can write your own login inside the playbook
 
 documentation is here https://github.com/operator-framework/operator-sdk/blob/master/doc/ansible/user-guide.md
 
